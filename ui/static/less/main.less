@@ -1,0 +1,104 @@
+@import "node_modules/bootstrap/less/bootstrap.less";
+@import "less/vendor/variables.less";
+
+@icon-font-path: "node_modules/bootstrap/fonts/";
+
+@jumbotron: ~'.container .jumbotron, .container-fluid .jumbotron';
+
+body {
+  overflow-x: hidden;
+}
+
+.image {
+  min-width: 100px;
+  min-height: 100px;
+  background: transparent url('/images/loading.gif') center no-repeat;
+}
+
+@{jumbotron} {
+  /* Hacking jumbotron to use as a navbar */
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: #333;
+  color: whitesmoke;
+  border-radius: 0;
+}
+
+.jumbotron h1 {
+  color: whitesmoke;
+}
+
+.form-control, .form-control:focus { 
+  border: none;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+h2.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 2.5em;
+}
+
+h2.title>a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home {
+  position: fixed;
+  top: -130px;
+  left: -130px;
+  width: 200px;
+  height: 200px;
+  background-color: #eee;
+  color: #333;
+  z-index: 11;
+  cursor: pointer; 
+  transition: 300ms linear all;
+}
+
+.home-text {
+  position: relative;
+  top: 140px;
+  left: 135px;
+  font-size: 32px;
+  transform: rotate(0deg);
+}
+
+.home:hover {
+  top: -120px;
+  left: -115px;
+  transition: 300ms linear all;
+}
+
+.circle {
+  border-radius: 9999px;
+}
+
+a {
+  color: #333;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #333;
+}
+
+.presentation:hover {
+  background-color: whitesmoke;
+}
+
+.image {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.image:hover {
+  border-radius: 5px;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  transition: 300ms linear all;
+};

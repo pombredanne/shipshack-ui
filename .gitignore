@@ -93,5 +93,3 @@ node_modules
 .bundle.css*
 bundle.js
 bundle.css
-static
-client/js/vars.js
