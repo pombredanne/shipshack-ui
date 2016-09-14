@@ -1,6 +1,10 @@
 import boto
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.authentication import (
+    SessionAuthentication,
+    BasicAuthentication)
+from rest_framework.permissions import IsAuthenticated
 
 from django.conf import settings
 
@@ -9,6 +13,9 @@ from storage.signature import CloudStorageURLSignerJSONParser
 
 
 class Photos(ViewSet):
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
+
     def __init__(self, *args, **kwargs):
         super(Photos, self).__init__(*args, **kwargs)
         self.signer = CloudStorageURLSignerJSONParser(

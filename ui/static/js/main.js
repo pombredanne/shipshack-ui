@@ -24,7 +24,7 @@ var Contents = React.createClass({
   },
 
   componentWillMount: function(){
-    var url = this.state.baseUrl + window.location.pathname.substr(4) + '/?format=json';
+    var url = this.state.baseUrl + window.location.pathname.substr(4) + '?format=json';
     console.log(url);
     this.load(url);
   },

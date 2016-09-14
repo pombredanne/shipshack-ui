@@ -140,3 +140,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+
+APPEND_SLASH = True
+LOGIN_REDIRECT_URL = '/app/'
+LOGIN_URL = '/login/'
