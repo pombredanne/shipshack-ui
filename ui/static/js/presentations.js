@@ -1,25 +1,56 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var Presentation = React.createClass({
-  openDetailModal: function(e) {
-    e.preventDefault();
-  },
-
+var Image = React.createClass({
   render: function(){
     return (
       <div className="col-md-6 presentation">
         <div>
         <h2 className={"title"}>
-          {this.props.presentation.name}
+          {this.props.image.name}
         </h2>
+        <div>
+          <ul className="list-inline">
+            <li>
+              <a href={this.props.image.source}>source</a>
+            </li>
+            <li>
+              <a href={this.props.image.url}>original</a>
+            </li>
+          </ul>
+        </div>
         <img
           className={"image img-circle img-responsive center-block"}
-          src={this.props.presentation.thumbnail}
+          src={this.props.image.thumbnail}
           alt="Loading the thumbnail"/>
         </div>
       </div>
     );
+  }
+});
+
+var Directory = React.createClass({
+  render: function(){
+    return (
+      <div className="col-md-6 presentation">
+        <div>
+        <h2 className={"title"}>
+          <a href={"/app/" + this.props.directory.name}>
+            {this.props.directory.name}
+          </a>
+        </h2>
+        </div>
+      </div>
+    );
+  }
+});
+
+var Presentation = React.createClass({
+  render: function(){
+    if (this.props.presentation.is_directory){
+      return <Directory directory={this.props.presentation}/>
+    }
+    return <Image image={this.props.presentation}/>
   }
 });
 

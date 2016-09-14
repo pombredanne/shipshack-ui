@@ -9,7 +9,7 @@ var Presentations = require('./presentations').presentations;
 var client = rest.wrap(mime);
 
 
-var Main = React.createClass({
+var Contents = React.createClass({
   getInitialState: function(){
     return {
       response: null,
@@ -24,21 +24,25 @@ var Main = React.createClass({
   },
 
   componentWillMount: function(){
-    var url = this.state.baseUrl + window.location.pathname + '/?format=json';
+    var url = this.state.baseUrl + window.location.pathname.substr(4) + '/?format=json';
     console.log(url);
     this.load(url);
   },
 
+  render: function() {
+    if (!this.state.response){
+      return <div><img src="/static/images/loading.gif"/></div>
+    }
+    return (<Presentations results={this.state.response.entity} chunkSize={2}/>);
+  }
+});
+
+var Main = React.createClass({
   refresh: function(){
-    window.location = '/';
+    window.location = '/app/';
   },
 
   render: function() {
-    if (!this.state.response){
-      console.log('no response');
-      return <Loading type='balls' />
-    }
-    console.log(this.state.response);
     return (
       <div>
         <div className="home circle" onClick={this.refresh}>
@@ -54,12 +58,12 @@ var Main = React.createClass({
           </div>
         </div>
         <div className="container">
-          <Presentations results={this.state.response.entity}
-                         chunkSize={2}/>
+          <Contents />
         </div>
       </div>
     );
   }
+
 });
 
 module.exports = Main;

@@ -133,3 +133,10 @@ STORAGE_BUCKET = 'shipshack-processed'
 THUMBNAIL_BUCKET = 'shipshack-thumbnails'
 SERVICE_ACCOUNT_JSON_PATH = '~/.config/gcloud/shipshack-46e7322ec8fd.json'
 STORAGE_URL = 'https://storage.googleapis.com'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
