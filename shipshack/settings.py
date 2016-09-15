@@ -144,3 +144,5 @@ REST_FRAMEWORK = {
 APPEND_SLASH = True
 LOGIN_REDIRECT_URL = '/app/'
 LOGIN_URL = '/login/'
+
+from shipshack.settings_prod import *
