@@ -77,6 +77,33 @@ h2.title>a {
   border-radius: 9999px;
 }
 
+.logout {
+  position: fixed;
+  top: -130px;
+  right: -130px;
+  width: 200px;
+  height: 200px;
+  background-color: #eee;
+  color: #333;
+  z-index: 11;
+  cursor: pointer; 
+  transition: 300ms linear all;
+}
+
+.logout-text {
+  position: relative;
+  top: 140px;
+  right: -30px;
+  font-size: 32px;
+  transform: rotate(0deg);
+}
+
+.logout:hover {
+  top: -120px;
+  right: -115px;
+  transition: 300ms linear all;
+}
+
 a {
   color: #333;
   text-decoration: underline;

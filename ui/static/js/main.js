@@ -42,11 +42,18 @@ var Main = React.createClass({
     window.location = '/app/';
   },
 
+  logout: function(){
+    window.location = '/logout/';
+  },
+
   render: function() {
     return (
       <div>
         <div className="home circle" onClick={this.refresh}>
           <div className="home-text glyphicon glyphicon-home"></div>
+        </div>
+        <div className="logout circle" onClick={this.logout}>
+          <div className="logout-text glyphicon glyphicon-log-out"></div>
         </div>
         <div className="container-fluid">
           <div className="jumbotron">

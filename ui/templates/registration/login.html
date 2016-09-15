@@ -8,8 +8,13 @@
                 <p><strong>{% trans "Oh snap!" %}</strong> {% trans "Please enter a correct username and password. Note that both fields are case-sensitive." %}</p>
             </div>
         {% endif %}
-        <form action="{% url 'login' %}" method="post" class="form-horizontal" role="form">{% csrf_token %}
-            <legend><span class="col-sm-offset-1">{% trans 'Log in' %}</span></legend>
+        {% if next %}
+          <form action="{% url 'login' %}?next={{next}}" method="post" class="form-horizontal" role="form" >
+        {%else%}
+          <form action="{% url 'login' %}" method="post" class="form-horizontal" role="form">
+          {% endif %}
+          {% csrf_token %}
+          <legend><span class="col-sm-offset-1">{% trans 'Log in' %}</span></legend>
             {% for field in form %}
                 {% include 'registration/form_field.html' %}
             {% endfor %}
