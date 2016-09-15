@@ -19,11 +19,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "watch-css": "node_modules/.bin/catw -c 'lessc -' 'less/*.less' -o bundle.css -v",
-    "watch-js": "watchify js/app.js -t [ babelify --presets [ es2015 react ] ] -o bundle.js -v",
+    "watch-css": "node_modules/.bin/catw -c 'lessc -' 'less/*.less' -o ../static/bundle.css -v",
+    "watch-js": "watchify js/app.js -t [ babelify --presets [ es2015 react ] ] -o ../static/bundle.js -v",
     "start": "npm run watch-css & npm run watch-js",
-    "build-css": "node_modules/.bin/catw -c 'lessc -' 'less/*.less' > bundle.css",
-    "build-js": "browserify js/app.js -t [ babelify --presets [ es2015 react ] ] -o bundle.js -v",
+    "build-css": "node_modules/.bin/catw -c 'lessc -' 'less/*.less' > ../static/bundle.css",
+    "build-js": "browserify js/app.js -t [ babelify --presets [ es2015 react ] ] -o ../static/bundle.js -v",
     "build": "npm run build-css && npm run build-js",
     "test": "jest"
   },
