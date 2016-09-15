@@ -95,3 +95,4 @@ bundle.js
 bundle.css
 settings_prod.py
 /static
+/venv

@@ -34,3 +34,16 @@ libraries:
 - name: MySQLdb
   version: 1.2.5
 # [END django_app]
+
+skip_files:
+- ^ui/frontend.*
+- ^COPYING.LESSER
+- ^LICENSE\..*
+- ^README\..*
+- \.gitignore
+- ^\.git/.*
+- \.*\.lint$
+- ^fabfile\.py
+- ^testrunner\.py
+- grunt\.js
+- node_modules/(.*/)?
